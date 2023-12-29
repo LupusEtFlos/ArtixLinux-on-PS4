@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Download scripts
         run: |
-        wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-bootstrap.sh
-        wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-rootfs.sh
+         wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-bootstrap.sh
+         wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-rootfs.sh
 
       - name: Modify script
         run: |
