@@ -17,6 +17,7 @@ jobs:
       - name: Modify script
         run: |
           sed -i "s/inits=('openrc' 'runit' 's6' 'dinit')/inits=('runit')/g" artix-rootfs.sh
+          sed -i "s/tar -cpzf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*/tar -cvJpf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*/g" artix-rootfs.sh
 
       - name: Grant execute permission for scripts
         run: |
