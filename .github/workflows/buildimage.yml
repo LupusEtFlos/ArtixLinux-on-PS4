@@ -24,7 +24,7 @@ jobs:
           chmod +x artix-rootfs.sh
 
       - name: Run script
-        run: ./artix-rootfs.sh
+        run: sudo ./artix-rootfs.sh
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
