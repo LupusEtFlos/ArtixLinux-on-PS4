@@ -16,7 +16,7 @@ jobs:
 
       - name: Modify script
         run: |
-          sed -i -e "s/inits=('openrc' 'runit' 's6' 'dinit')/inits=('runit')/g; s|tar -cpzf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*|tar -cvJpf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*|g" artix-rootfs.sh
+          sed -i -e "s/inits=('openrc' 'runit' 's6' 'dinit')/inits=('runit')/g; s|tar -cpzf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*|tar -cvJpf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.xz \*|g" artix-rootfs.sh
 
       - name: Grant execute permission for scripts
         run: |
@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: john-ps4-linux
-          path: artixlinux-bootstrap-*-runit-x86_64.tar.gz
+          path: artixlinux-bootstrap-*-runit-x86_64.tar.xz
