@@ -35,7 +35,7 @@ jobs:
       - name: cleanup
         run: |
           sudo rm -rf download/
-          sudo rm artixlinux-bootstrap-*.*.*-runit-x86_64.tar.gz
+          sudo rm artixlinux-bootstrap-*.*.*-runit-x86_64.tar.xz
   kde:
     needs: base
     runs-on: ubuntu-latest
