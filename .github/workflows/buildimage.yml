@@ -37,6 +37,7 @@ jobs:
           sudo rm -rf download/
           sudo rm artixlinux-bootstrap-*.*.*-runit-x86_64.tar.gz
   kde:
+    needs: base
     runs-on: ubuntu-latest
 
     steps:
