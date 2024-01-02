@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  base:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,10 +13,6 @@ jobs:
         run: |
           wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-bootstrap.sh
           wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-rootfs.sh
-
-      - name: Modify bootstrap script
-        run: |
-          sed -i "s/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed)/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed nano neovim base-devel networkmanager networkmanger-\${INIT})/g" artix-bootstrap.sh
 
       - name: Modify rootfs script
         run: |
@@ -30,8 +26,11 @@ jobs:
       - name: Run script
         run: sudo ./artix-rootfs.sh
 
+      - name: Run ls
+        run: ls
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: john-ps4-linux
+          name: artix-base
           path: artixlinux-bootstrap-*-runit-x86_64.tar.xz
