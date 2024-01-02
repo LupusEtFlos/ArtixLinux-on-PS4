@@ -1,4 +1,4 @@
-name: Create Arch Linux image
+name: Create Artix Linux image
 
 on:
   push:
@@ -11,10 +11,14 @@ jobs:
     steps:
       - name: Download scripts
         run: |
-         wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-bootstrap.sh
-         wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-rootfs.sh
+          wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-bootstrap.sh
+          wget https://gitea.artixlinux.org/artix/artix-bootstrap/raw/branch/master/artix-rootfs.sh
 
-      - name: Modify script
+      - name: Modify bootstrap script
+        run: |
+          sed -i "s/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed)/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed nano neovim base-devel networkmanager networkmanger-\${INIT})/g" artix-bootstrap.sh
+
+      - name: Modify rootfs script
         run: |
           sed -i -e "s/inits=('openrc' 'runit' 's6' 'dinit')/inits=('runit')/g; s|tar -cpzf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.gz \*|tar -cvJpf ../artixlinux-bootstrap-\$(date +'%Y.%m.%d')-\$init-x86_64.tar.xz \*|g" artix-rootfs.sh
 
