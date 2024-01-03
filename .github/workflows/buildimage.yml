@@ -44,7 +44,7 @@ jobs:
 
       - name: Modify bootstrap script
         run: |
-          sed -i "s/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed)/EXTRA_PACKAGES=(coreutils bash grep gawk file tar sed nano neovim base-devel networkmanager networkmanger-runit pipewire pipewire-alsa pipewire-pulse pipewire-jack wayland wayland-protocols wayland-utils plasma-desktop konsole kscreen kinfocenter dolphin plasma-wayland-protocols plasma-workspace-wallpapers plasma-wayland-session sddm sddm-runit sddm-kcm oxygen breeze-gtk kde-gtk-config kvantum plasma-nm plasma-pa layer-shell-qt bluez bluez-utils)/g" artix-bootstrap.sh
+          sed -i 's/filesystem)$/filesystem nano neovim base-devel networkmanager networkmanger-runit pipewire pipewire-alsa pipewire-pulse pipewire-jack wayland wayland-protocols wayland-utils plasma-desktop konsole kscreen kinfocenter dolphin plasma-wayland-protocols plasma-workspace-wallpapers plasma-wayland-session sddm sddm-runit sddm-kcm oxygen breeze-gtk kde-gtk-config kvantum plasma-nm plasma-pa layer-shell-qt bluez bluez-utils)/' artix-bootstrap.sh
 
       - name: Modify rootfs script
         run: |
