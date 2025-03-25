@@ -1,4 +1,4 @@
-# Arch Linux on PS4
+# Arch Linux on PS4!
 
 This repository aims to create a usable instance of Arch Linux, following the Arch Linux release cycle of roughly every month.
 This is achieved by using GitHub Actions to create a new and up-to-date `psxitarch.tar.gz` on demand.
